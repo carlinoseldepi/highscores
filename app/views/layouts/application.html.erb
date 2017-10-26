@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>High Scores</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+  	<header>
+	  	<nav class="light-blue lighten-1" role="navigation">
+	    	<div class="nav-wrapper container">
+	    		<a id="logo-container" href="#" class="brand-logo">HIGH SCORES</a>
+	    	</div>
+	    </nav>
+	    
+    	<div class="row">
+    		<div class="col s12">
+    			<ul class="tabs">
+			    	<li class="tab col s4 <%= tab_active?('games', 'new') %>">
+			    		<%= link_to 'Set up new games', new_game_path %>
+			    	</li>
+			    	<li class="tab col s4 <%= tab_active?('scores', 'new') %>">
+			    		<%= link_to 'Add Score', new_score_path %>
+			    	</li>
+			    	<li class="tab col s4 <%= tab_active?('games', 'top_players') %>">
+			    		<%= link_to 'Top Players', top_players_games_path %>
+			    	</li>
+		    	</ul>
+		    </div>
+    	</div>
+    </header>
+  	
+	  	<div class="container">
+	  		
+	  		
+	  		<div class="row">
+	  		
+	  			<div class="col s12">
+	    			<%= yield %>
+	    		</div>
+	    		
+	    	</div>
+	    </div>
+    
+    <footer class="page-footer orange">
+    	<div class="footer-copyright">
+    		<div class="container">
+    			<a href="https://www.linkedin.com/in/carlos-fern%C3%A1ndez-%C3%A1lvarez/" title="Link to Linkedin Profile">Carlos Fernández Álvarez</a>
+    		</div>
+    	</div>
+    </footer>
+    
+    
+    <script>
+    	$(document).ready(function() {
+    		alert('heyyyyyyyy');
+    		$('select').material_select();
+		});
+	</script>
+  </body>
+</html>
