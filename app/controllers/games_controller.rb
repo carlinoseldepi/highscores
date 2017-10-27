@@ -61,6 +61,17 @@ class GamesController < ApplicationController
     end
   end
 
+  # GET /top_players
+  def top_players
+    @top_players_by_game = Game.top_players_by_game
+    @top_players_general = Game.top_players_general(@top_players_by_game)
+
+    respond_to do |format|
+      format.html {}
+      format.json { head :no_content}
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_game

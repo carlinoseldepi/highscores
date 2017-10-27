@@ -23,7 +23,7 @@
 
   <div class="input-field">
     <%= form.label :game_id %>
-    <%= form.collection_select :game_id, Game.all, :id, :name, style: "display: visible" %>
+    <%= form.collection_select :game_id, Game.all, :id, :name %>
   </div>
 
   <div class="actions">
