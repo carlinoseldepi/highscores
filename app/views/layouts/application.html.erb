@@ -12,25 +12,20 @@
   	<header>
 	  	<nav class="light-blue lighten-1" role="navigation">
 	    	<div class="nav-wrapper container">
-	    		<a id="logo-container" href="#" class="brand-logo">HIGH SCORES</a>
+				<a id="logo-container" href="/" class="brand-logo">HIGH SCORES</a>
+				<ul id="nav-mobile" class="right hide-on-med-and-down">
+					<li class="<%= tab_active?('games', 'new') %>">
+						<%= link_to 'Set up new games', new_game_path %>
+					</li>
+					<li class="<%= tab_active?('scores', 'new') %>">
+						<%= link_to 'Add Score', new_score_path %>
+					</li>
+					<li class="<%= tab_active?('games', 'top_players') %>">
+						<%= link_to 'Top Players', top_players_games_path %>
+					</li>
+			  	</ul>
 	    	</div>
 	    </nav>
-	    
-    	<div class="row">
-    		<div class="col s12">
-    			<ul class="tabs">
-			    	<li class="tab col s4 <%= tab_active?('games', 'new') %>">
-			    		<%= link_to 'Set up new games', new_game_path %>
-			    	</li>
-			    	<li class="tab col s4 <%= tab_active?('scores', 'new') %>">
-			    		<%= link_to 'Add Score', new_score_path %>
-			    	</li>
-			    	<li class="tab col s4 <%= tab_active?('games', 'top_players') %>">
-			    		<%= link_to 'Top Players', top_players_games_path %>
-			    	</li>
-		    	</ul>
-		    </div>
-    	</div>
     </header>
   	
 	  	<div class="container">
@@ -48,7 +43,7 @@
     <footer class="page-footer orange">
     	<div class="footer-copyright">
     		<div class="container">
-    			<a href="https://www.linkedin.com/in/carlos-fern%C3%A1ndez-%C3%A1lvarez/" title="Link to Linkedin Profile">Carlos Fernández Álvarez</a>
+    			<a href="https://www.linkedin.com/in/carlos-fern%C3%A1ndez-%C3%A1lvarez/" target="_blank" title="Link to Linkedin Profile">Carlos Fernández Álvarez</a>
     		</div>
     	</div>
     </footer>
