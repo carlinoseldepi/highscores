@@ -30,4 +30,22 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  application_name: "HIGH SCORES"
+  author: 'Carlos Fernández Álvarez'
+  form:
+    create: 'Create'
+    submit: 'Submit'
+  menu:
+    top_players: 'Top Players'
+    add_score: 'Add Score'
+    new_game: 'Set up new games'
+  top_players:
+    title: 'Top Players'
+    general: 'General Ranking (top %{number})'
+    by_game: 'Ranking by game (top %{number})'
+    points: 'points'
+  add_score:
+    title: 'Add score'
+  new_game:
+    title: 'New game'
+    

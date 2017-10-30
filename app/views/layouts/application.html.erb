@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>High Scores</title>
+    <title><%= I18n.t('application_name') %></title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -12,7 +12,7 @@
   	<header>
 	  	<nav class="light-blue lighten-1" role="navigation">
 	    	<div class="nav-wrapper container">
-				<a id="logo-container" href="/" class="brand-logo">HIGH SCORES</a>
+				<a id="logo-container" href="/" class="brand-logo"><%= I18n.t('application_name') %></a>
 				<ul id="nav-mobile" class="right hide-on-med-and-down">
 					<li class="<%= tab_active?('games', 'new') %>">
 						<%= link_to 'Set up new games', new_game_path %>
@@ -43,7 +43,7 @@
     <footer class="page-footer orange">
     	<div class="footer-copyright">
     		<div class="container">
-    			<a href="https://www.linkedin.com/in/carlos-fern%C3%A1ndez-%C3%A1lvarez/" target="_blank" title="Link to Linkedin Profile">Carlos Fernández Álvarez</a>
+    			<a class="white-text" href="https://www.linkedin.com/in/carlos-fern%C3%A1ndez-%C3%A1lvarez/" target="_blank" title="Link to Linkedin Profile"><%= I18n.t('author') %></a>
     		</div>
     	</div>
     </footer>

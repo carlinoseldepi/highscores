@@ -1,5 +1,9 @@
 class Game < ApplicationRecord
   
+  ## const
+  TOP_GENERAL = 10
+  TOP_GAME = 5
+
   ## relations
   has_many :scores, dependent: :destroy
   
@@ -10,11 +14,15 @@ class Game < ApplicationRecord
   ## class methods
   class << self
     
+
+    #
+    # Return a hash with the
+    #
     def top_players_by_game
       result = {}
 
       Game.all.each do |game|
-        result[game.name] = Score.select("player_email, SUM(score) as total_score").group("player_email").order("SUM(score) desc").where("game_id=?", game.id)
+        result[game.name] = Score.select("player_email, SUM(score) as total_score").group("player_email").order("SUM(score) desc").where("game_id=?", game.id).limit(Game::TOP_GAME)
       end
 
       result
@@ -38,7 +46,7 @@ class Game < ApplicationRecord
         end
       end
 
-      result = result.sort_by{|email, score| score}.reverse
+      result = result.sort_by{|email, score| score}.reverse[0..Game::TOP_GENERAL]
 
       result
     end
