@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
   resources :scores
-  resources :games do 
+  resources :games do
     collection do
       get 'top_players'
     end
+
+    resources :scores 
   end
   
   
@@ -13,5 +15,5 @@ Rails.application.routes.draw do
     end
   end
   
-  root :to => 'games#top_players'
+  root :to => 'scores#new'
 end

@@ -6,7 +6,7 @@ module Api
       
       #respond_to :json
         
-     # before_filter :valid_request_format
+      before_action :valid_request_format
       
       private
       
