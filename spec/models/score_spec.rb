@@ -9,4 +9,5 @@ RSpec.describe Score, type: :model do
   # ensure columne player_email and score are present before saving
   it { should validate_presence_of(:player_email) }
   it { should validate_presence_of(:score) }
+  it { should validate_presence_of(:game_id) }
 end

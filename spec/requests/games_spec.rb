@@ -5,10 +5,10 @@ RSpec.describe 'Games API', type: :request do
   let!(:games) { create_list(:game, 10) }
   let(:game_id) { games.first.id }
 
-  # Test suite for GET /games
-  describe 'GET /games' do
+  # Test suite for GET /api/v1/games
+  describe 'GET /api/v1/games' do
     # make HTTP get request before each example
-    before { get '/games' }
+    before { get '/api/v1/games' }
 
     it 'returns games' do
       # Note `json` is a custom helper to parse JSON responses
@@ -21,9 +21,9 @@ RSpec.describe 'Games API', type: :request do
     end
   end
 
-  # Test suite for GET /games/:id
-  describe 'GET /games/:id' do
-    before { get "/games/#{game_id}" }
+  # Test suite for GET /api/v1/games/:id
+  describe 'GET /api/v1/games/:id' do
+    before { get "/api/v1/games/#{game_id}" }
 
     context 'when the record exists' do
       it 'returns the game' do
@@ -44,21 +44,21 @@ RSpec.describe 'Games API', type: :request do
       end
 
       it 'returns a not found message' do
-        expect(response.body).to match(/Couldn't find game/)
+        expect(response.body).to match(/Couldn't find Game/)
       end
     end
   end
 
-  # Test suite for POST /games
-  describe 'POST /games' do
+  # Test suite for POST /api/v1/games
+  describe 'POST /api/v1/games' do
     # valid payload
-    let(:valid_attributes) { { name: 'Super Mario Bros' } }
+    let(:valid_attributes) { { game: {name: 'Sonic'} } }
 
     context 'when the request is valid' do
-      before { post '/games', params: valid_attributes }
+      before { post '/api/v1/games', params: valid_attributes }
 
       it 'creates a game' do
-        expect(json['name']).to eq('Super Marios Bros')
+        expect(json['name']).to eq('Sonic')
       end
 
       it 'returns status code 201' do
@@ -67,7 +67,7 @@ RSpec.describe 'Games API', type: :request do
     end
 
     context 'when the request is invalid' do
-      before { post '/games', params: { name: 'Rallie' } }
+      before { post '/api/v1/games', params: { game: {title: 'Rally'} } }
 
       it 'returns status code 422' do
         expect(response).to have_http_status(422)
@@ -75,17 +75,17 @@ RSpec.describe 'Games API', type: :request do
 
       it 'returns a validation failure message' do
         expect(response.body)
-          .to match(/Validation failed: Created by can't be blank/)
+          .to match(/Validation failed: Name can't be blank/)
       end
     end
   end
 
-  # Test suite for PUT /games/:id
-  describe 'PUT /games/:id' do
-    let(:valid_attributes) { { name: 'Fifa q8' } }
+  # Test suite for PUT /api/v1/games/:id
+  describe 'PUT /api/v1/games/:id' do
+    let(:valid_attributes) { { game: {name: 'Fifa 18'} } }
 
     context 'when the record exists' do
-      before { put "/games/#{game_id}", params: valid_attributes }
+      before { put "/api/v1/games/#{game_id}", params: valid_attributes }
 
       it 'updates the record' do
         expect(response.body).to be_empty
@@ -97,9 +97,9 @@ RSpec.describe 'Games API', type: :request do
     end
   end
 
-  # Test suite for DELETE /games/:id
-  describe 'DELETE /games/:id' do
-    before { delete "/games/#{game_id}" }
+  # Test suite for DELETE /api/v1/games/:id
+  describe 'DELETE /api/v1/games/:id' do
+    before { delete "/api/v1/games/#{game_id}" }
 
     it 'returns status code 204' do
       expect(response).to have_http_status(204)

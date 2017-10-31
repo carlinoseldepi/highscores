@@ -6,7 +6,7 @@ module ExceptionHandler
   included do
     
     rescue_from ActiveRecord::RecordNotFound do |e|
-      json_response({message: e.mesage}, :not_found)
+      json_response({message: e.message}, :not_found)
     end
     
     rescue_from ActiveRecord::RecordInvalid do |e|

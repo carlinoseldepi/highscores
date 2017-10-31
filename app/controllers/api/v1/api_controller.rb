@@ -2,9 +2,10 @@ module Api
   
   module V1
     
-    class ApiController < ActionController::Base
+    class ApiController < ActionController::API
       
-      #respond_to :json
+      include Response
+      include ExceptionHandler
         
       before_action :valid_request_format
       
