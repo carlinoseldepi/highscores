@@ -4,6 +4,11 @@ module Api
       
       class GamesController < Api::V1::ApiController
   
+        # protect all actions from exceptions
+        rescue_from StandardError do |exception|
+          render json: { error: exception.message }, status: 500
+        end
+
         before_action :set_game, only: [:show, :update, :destroy]
         
         #

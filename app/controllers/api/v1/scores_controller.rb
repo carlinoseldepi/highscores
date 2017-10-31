@@ -4,6 +4,11 @@ module Api
     
     class ScoresController < Api::V1::ApiController
 
+      # protect all actions from exceptions
+      rescue_from StandardError do |exception|
+        render json: { error: exception.message }, status: 500
+      end
+
       before_action :set_score, only: [:show, :update, :destroy]
       
       #
@@ -45,7 +50,7 @@ module Api
       end
 
       def set_score
-        @score = Score.find(params[:id])
+        @score = Score.find(params[:id]) #rescue nil
       end
       
     end
