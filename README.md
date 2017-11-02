@@ -4,7 +4,7 @@ This application is a test for SWEETSPOT.
 
 Things you may want to cover:
 
-* Author: Carlos Fenández Álvarez
+* Author: Carlos Fernández Álvarez
 
 * Vagrant environment: https://github.com/lcreid/rails-5-jade
 
