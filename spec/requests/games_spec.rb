@@ -75,7 +75,7 @@ RSpec.describe 'Games API', type: :request do
 
       it 'returns a validation failure message' do
         expect(response.body)
-          .to match(/Validation failed: Name can't be blank/)
+          .to match(/There was a problem with the request/) #.to match(/Validation failed: Name can't be blank/)
       end
     end
   end

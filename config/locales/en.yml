@@ -48,4 +48,15 @@ en:
     title: 'Add score'
   new_game:
     title: 'New game'
+  api:
+    scores:
+      error: "There was a problem with the request"
+      add:
+        ok: "Score added successfully!"
+        ko: "Score not added. There was a problem"
+    games:
+      error: "There was a problem with the request"
+      add:
+        ok: "Game added successfully!"
+        ko: "Game not added. There was a problem"
     

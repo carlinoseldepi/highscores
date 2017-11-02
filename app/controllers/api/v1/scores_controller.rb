@@ -6,14 +6,12 @@ module Api
 
       # protect all actions from exceptions
       rescue_from StandardError do |exception|
-        render json: { error: exception.message }, status: 500
+        logger.error "API::ScoresController - Error: #{exception.message}"
+        render json: { error: I18n.t('api.scores.error'), message: exception.message }, status: 500
       end
 
       before_action :set_score, only: [:show, :update, :destroy]
       
-      #
-      # call: http://localhost:3000/api/v1/scores
-      #
       # GET /scores
       def index
         @scores = Score.all
@@ -28,7 +26,8 @@ module Api
       # POST /scores
       def create
         @score = Score.create!(score_params)
-        json_response(@score, :created)
+        #json_response(@score, :created)
+        json_response({message: 'Score added successfully!'}, :created)
       end
 
       # PUT /scores/:id

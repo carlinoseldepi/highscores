@@ -61,7 +61,7 @@ RSpec.describe 'Scores API', type: :request do
       before { post '/api/v1/scores', params: valid_attributes }
 
       it 'creates a score' do
-        expect(json['player_email']).to eq('email@gmail.com')
+        expect(json['message']).to eq(I18n.t('api.scores.add.ok'))
       end
 
       it 'returns status code 201' do
@@ -78,7 +78,7 @@ RSpec.describe 'Scores API', type: :request do
 
       it 'returns a validation failure message' do
         expect(response.body)
-          .to match(/Validation failed: Game must exist, Game can't be blank/)
+          .to match(/There was a problem with the request/) #.to match(/Validation failed: Game must exist, Game can't be blank/)
       end
     end
   end

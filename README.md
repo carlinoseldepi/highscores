@@ -1,24 +1,33 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This application is a test for SWEETSPOT.
 
 Things you may want to cover:
 
-* Ruby version
+* Author: Carlos Fenández Álvarez
 
-* System dependencies
+* Vagrant environment: https://github.com/lcreid/rails-5-jade
 
-* Configuration
+* Ruby version: 2.3.1p112
 
-* Database creation
+* Rails version: 5.1.4
 
-* Database initialization
+* Stylesheet: Uses Materialize framework => http://materializecss.com/
 
-* How to run the test suite
+* API: Complete RESTful API endpoints for games|scores in the url http://localhost:3000/api/v1/
 
-* Services (job queues, cache servers, search engines, etc.)
+* Configuration: Use 'bundle install' for install all gems and dependencies
 
-* Deployment instructions
+* Database: Sqlite
 
-* ...
+* Database initialization: 'rake db:create db:migrate db:seeds'
+
+* Test suite: Rspec for the API endpoints
+
+* Run the test suite: 'bundle exec rspec'
+
+* I18n: prepare to internationalization. Only english (en) language available now
+
+* Application description:
+    * Part 1: Form view to add games and form view for add scores of the player for a game
+    * Part 2: View with top general 10 players and top 5 players for each game

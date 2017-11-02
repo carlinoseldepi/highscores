@@ -6,7 +6,8 @@ module Api
   
         # protect all actions from exceptions
         rescue_from StandardError do |exception|
-          render json: { error: exception.message }, status: 500
+          logger.error "API::ScoresController - Error: #{exception.message}"
+          render json: { error: I18n.t('api.scores.error'), message: exception.message }, status: 500
         end
 
         before_action :set_game, only: [:show, :update, :destroy]
